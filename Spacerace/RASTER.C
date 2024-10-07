@@ -45,3 +45,5 @@ void plot_number(int x, int y,const UINT32 *bitmap){
 
 void clear_screen(){
 }
+
+//kbkbkdfvvnvbnfnjndljdfn
