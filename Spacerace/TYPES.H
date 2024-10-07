@@ -1,5 +1,6 @@
 #ifndef TYPES_H
 #define TYPES_H
+#define ASTEROID_HEIGHT 8
 #define ROCKET_HEIGHT 32
 #define NUMBER_HEIGHT 32
 #define HEART_HEIGHT 16
