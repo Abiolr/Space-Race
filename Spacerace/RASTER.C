@@ -2,6 +2,19 @@
 #include "raster.h"
 #include "bitmap.h"
 
+void plot_bitmap_8(UINT8 *base, int x, int y, 
+                    const UINT8 *bitmap, unsigned int height)
+{
+    UINT8 *next = base + (y * 80) + (x >> 3);
+    int i = 0;
+    while (i < height)
+    {
+        *next = bitmap[i];
+        next += 80;
+        i += 1;
+        }
+}
+
 void plot_bitmap_16(UINT16 *base, int x, int y, 
                     const UINT16 *bitmap, unsigned int height)
 {
@@ -43,16 +56,23 @@ void plot_number(int x, int y,const UINT32 *bitmap){
     plot_bitmap_32(FB32, x, y, bitmap, NUMBER_HEIGHT);
 }
 
-void clear_screen() {
-    UINT32 *FB32 = Physbase();
-    UINT32 color = 0x00000000; // Color to clear to (black for 32-bit framebuffer)
-
-    // Clear the framebuffer by setting each pixel to the desired color
-    for (int y = 0; y < SCREEN_HEIGHT; y++) {
-        for (int x = 0; x < SCREEN_WIDTH; x++) {
-            FB32[y * (SCREEN_WIDTH / 2) + (x / 2)] = color; // Assuming 32 bits per pixel, adjust index calculation as needed
-        }
-    }
+void plot_asteroid(int x, int y){
+    UINT8 *FB8 = Physbase();
+    plot_bitmap_8(FB8, x, y, asteroid_bitmap, ASTEROID_HEIGHT); 
 }
 
-//kbkbkdfvvnvbnfnjndljdfn
+void clear_screen() {
+    UINT32 *base = Physbase();
+    UINT32 color = 0x00000000; 
+ 
+    int i = 0;
+
+    while (i < SCREEN_HEIGHT) {
+        UINT32 *next = base + (i * (SCREEN_WIDTH >> 1)); 
+        int j;
+        for (j = 0; j < (SCREEN_WIDTH >> 1); j++) { 
+            *next++ = color; 
+        }
+        i += 1;
+    }
+}

@@ -36,6 +36,18 @@ UINT32 rocket_bitmap[ROCKET_HEIGHT] =
 	0x00000000
 };
 
+UINT8 asteroid_bitmap[ASTEROID_HEIGHT] =
+{
+    0x00,
+    0x00,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0x00,
+    0x00
+};
+
 UINT16 heart_bitmap[HEART_HEIGHT] = 
 {
 	0x381C,
