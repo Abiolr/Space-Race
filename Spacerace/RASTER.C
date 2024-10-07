@@ -76,4 +76,3 @@ void clear_screen() {
         i += 1;
     }
 }
-
