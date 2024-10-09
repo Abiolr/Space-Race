@@ -50,13 +50,13 @@ UINT8 asteroid_bitmap[ASTEROID_HEIGHT] =
 
 UINT16 heart_bitmap[HEART_HEIGHT] = 
 {
-	0x381C,
-    0x7C3E,
+	0x3C3C,
+    0x7E7E,
     0xFE7F,
-    0XFFFF,
-    0XFFFF,
-    0XFFFF,
-    0XFFFF,
+    0xFFFF,
+    0xE7FF,
+    0xEFFF,
+    0xFFFF,
     0xFFFF,
     0xFFFF,
     0x7FFE,

@@ -23,8 +23,8 @@ int main()
     plot_asteroid(110, 300);
     plot_asteroid(302, 300);
     plot_asteroid(200, 300);
-    plot_heart(600,10);
-    plot_heart(560,10);
-    plot_heart(639,10);
+    plot_heart(610,10);
+    plot_heart(580,10);
+    plot_heart(550,10);
     return 0;
 }
