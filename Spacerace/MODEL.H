@@ -1,0 +1,22 @@
+#ifndef MODEL_H
+#define MODEL_H
+
+typedef struct
+{
+    unsigned int x, y;
+    int delta_y;
+} Spaceship;
+
+typedef struct
+{
+    unsigned int x, y;
+    int delta_x;
+} Asteroid;
+
+
+typedef struct {
+    Spaceship spaceship;        
+    Asteroid asteroids[40];      
+} Model;
+
+#endif
