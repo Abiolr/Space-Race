@@ -51,9 +51,39 @@ void plot_heart(int x,int y){
     plot_bitmap_16(FB16, x, y, heart_bitmap, HEART_HEIGHT);
 }
 
-void plot_number(int x, int y,const UINT32 *bitmap){
+void plot_number(int x, int y, int n){
     UINT32 *FB32 = Physbase();
-    plot_bitmap_32(FB32, x, y, bitmap, NUMBER_HEIGHT);
+
+    if (n == 0){
+        plot_bitmap_32(FB32, x, y, number_zero, NUMBER_HEIGHT);
+    }
+    else if (n == 1){
+        plot_bitmap_32(FB32, x, y, number_one, NUMBER_HEIGHT);
+    }
+    else if (n == 2){
+        plot_bitmap_32(FB32, x, y, number_two, NUMBER_HEIGHT);
+    }
+    else if (n == 3){
+        plot_bitmap_32(FB32, x, y, number_three, NUMBER_HEIGHT);
+    }
+    else if (n == 4){
+        plot_bitmap_32(FB32, x, y, number_four, NUMBER_HEIGHT);
+    }
+    else if (n == 5){
+        plot_bitmap_32(FB32, x, y, number_five, NUMBER_HEIGHT);
+    }
+    else if (n == 6){
+        plot_bitmap_32(FB32, x, y, number_six, NUMBER_HEIGHT);
+    }
+    else if (n == 7){
+        plot_bitmap_32(FB32, x, y, number_seven, NUMBER_HEIGHT);
+    }
+    else if (n == 8){
+        plot_bitmap_32(FB32, x, y, number_eight, NUMBER_HEIGHT);
+    }
+    else if (n == 9){
+        plot_bitmap_32(FB32, x, y, number_nine, NUMBER_HEIGHT);
+    }
 }
 
 void plot_asteroid(int x, int y){

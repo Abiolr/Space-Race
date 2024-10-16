@@ -1,6 +1,6 @@
 #include <osbind.h>
 #include "raster.h"
-#include "bitmap.h"
+
 
 
 int main()
@@ -16,11 +16,6 @@ int main()
                 440, 280, 24, 488, 88};
                 
     clear_screen();
-    plot_number(610,10,number_one);
-    plot_number(580,10,number_two);
-    plot_number(550,10,number_three);
-    plot_space_ship(320,350);
-
 
     for (i = 0; i < 33; i += 3)
     {
@@ -32,6 +27,12 @@ int main()
 
         j += 1;
         }
+
+    plot_number(FIRST_DIGIT,SCORE_ROW,4);
+    plot_number(SECOND_DIGIT,SCORE_ROW,2);
+    plot_number(THIRD_DIGIT,SCORE_ROW,0);
+
+    plot_space_ship(320,350);
     
     plot_heart(610,50);
     plot_heart(600,50);

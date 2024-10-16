@@ -17,7 +17,7 @@ void plot_space_ship(int x,int y);
 
 void plot_heart(int x,int y);
 
-void plot_number(int x, int y, const UINT32 *bitmap);
+void plot_number(int x, int y, int n);
 
 void plot_asteroid(int x, int y);
 
