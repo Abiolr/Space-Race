@@ -5,7 +5,7 @@
 void plot_bitmap_8(UINT8 *base, int x, int y, 
                     const UINT8 *bitmap, unsigned int height)
 {
-    UINT8 *next = base + (y * 80) + (x >> 3);
+    UINT8 *next = base + (y << 6) + (y << 4) + (x >> 3);                       /**/
     int i = 0;
     while (i < height)
     {
@@ -18,7 +18,7 @@ void plot_bitmap_8(UINT8 *base, int x, int y,
 void plot_bitmap_16(UINT16 *base, int x, int y, 
                     const UINT16 *bitmap, unsigned int height)
 {
-    UINT16 *next = base + (y * 40) + (x >> 4);
+    UINT16 *next = base + (y << 5) + (y << 3) + (x >> 4);
     int i = 0;
     while (i < height)
     {
@@ -31,7 +31,7 @@ void plot_bitmap_16(UINT16 *base, int x, int y,
 void plot_bitmap_32(UINT32 *base, int x, int y, 
                     const UINT32 *bitmap, unsigned int height)
 {
-    UINT32 *next = base + (y * 20) + (x >> 5);
+    UINT32 *next = base + (y << 4) + (y << 2) + (x >> 5);
     int i = 0;
     while (i < height)
     {
@@ -68,9 +68,9 @@ void clear_screen() {
     int i = 0;
 
     while (i < SCREEN_HEIGHT) {
-        UINT32 *next = base + (i * (SCREEN_WIDTH >> 1)); 
+        UINT32 *next = base + (i * (SCREEN_WIDTH >> 5)); 
         int j;
-        for (j = 0; j < (SCREEN_WIDTH >> 1); j++) { 
+        for (j = 0; j < (SCREEN_WIDTH >> 5); j++) { 
             *next++ = color; 
         }
         i += 1;
