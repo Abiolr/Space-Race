@@ -11,7 +11,7 @@ void plot_bitmap_8(UINT8 *base, int x, int y,
     {
         *next = bitmap[i];
         next += 80;
-        i += 1;
+        i += 1;                
         }
 }
 

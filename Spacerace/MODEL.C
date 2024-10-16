@@ -9,8 +9,8 @@ void init_spaceship(Spaceship *spaceship)
 
 void init_asteroid(Asteroid *asteroid, unsigned int x, unsigned int y, int delta_x)
 {
-    asteroid->x = x;                    /*find a way to randomize positon*/
-    asteroid->y = y;                    /*find a way to randomize positon*/
+    asteroid->x = x;                    
+    asteroid->y = y;                    
     asteroid->delta_x = delta_x;        /*add a constant speed later*/
 }
 
