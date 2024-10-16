@@ -21,4 +21,13 @@ typedef struct {
     int score;
 } Model;
 
+void init_spaceship(Spaceship *spaceship);
+
+void init_asteroid(Asteroid *asteroid, unsigned int x, unsigned int y, int delta_x);
+
+void move_asteroid(Asteroid *asteroid);
+
+void move_spaceship(Spaceship *spaceship);
+
+
 #endif
