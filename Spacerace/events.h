@@ -1,10 +1,11 @@
 #include "model.h"
+#include "RASTER.H"
 
-void move_spaceship_up(Spaceship *spaceship);
+void move_spaceship_up(Model *model);
 
-void move_spaceship_down(Spaceship *spaceship);
+void move_spaceship_down(Model *model);
 
-void stop_spaceship_up(Model *model);
+void stop_spaceship(Model *model);
 
 void spaceship_collison(Model *model);
 
