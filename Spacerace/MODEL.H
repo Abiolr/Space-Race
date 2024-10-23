@@ -17,8 +17,8 @@ typedef struct
 typedef struct {
     Spaceship spaceship;        
     Asteroid asteroid[40];      
-    int lives;
-    int score;
+    int lives = 3;
+    int score = 0;
 } Model;
 
 #endif
