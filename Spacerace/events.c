@@ -1,18 +1,20 @@
 #include "events.h"
 
 void move_spaceship_up(Model *model){
-    model->spaceship.delta_y = 2;
+    clear_spaceship(model->spaceship.x,model->spaceship.y);
+    model->spaceship.delta_y = 10;
+    plot_spaceship(model->spaceship.x,model->spaceship.y);
 }
 
-void move_spaceship_up(Model *model){
+void move_spaceship_down(Model *model){
     model->spaceship.delta_y = -2;
 }
-void stop_spaceship_up(Model *model){
+void stop_spaceship(Model *model){
     model->spaceship.delta_y = 0;
 }
 
 void spaceship_collison(Model *model){
-    reset_spaceship(model->spaceship);
+    reset_spaceship(&model->spaceship);
     model->lives -= 1;
 }
 
@@ -20,14 +22,14 @@ void point_scored(Model *model){
     model->score += 1; 
 }
 
-void update_asteroids(Model *model)
-{
-    for (int i = 0; i < 33; i++)
+void update_asteroids(Model *model){
+    int i;
+
+    for (i = 0; i < 33; i++)
     {
         move_asteroid(&model->asteroid[i]);
 
-        // Wrap asteroids around the screen if they go off the edge
-        if (model->asteroid[i].x > 640)  // Assuming 640 is screen width
+        if (model->asteroid[i].x > 640) 
         {
             model->asteroid[i].x = 0;
         }

@@ -1,6 +1,5 @@
 #include <osbind.h>
 #include "raster.h"
-#include "bitmap.h"
 
 void plot_bitmap_8(UINT8 *base, int x, int y, 
                     const UINT8 *bitmap, unsigned int height)
@@ -41,9 +40,9 @@ void plot_bitmap_32(UINT32 *base, int x, int y,
         }
 }
 
-void plot_space_ship(int x,int y){
+void plot_spaceship(int x,int y){
     UINT32 *FB32 = Physbase();
-    plot_bitmap_32(FB32, 320, 350, rocket_bitmap, ROCKET_HEIGHT);
+    plot_bitmap_32(FB32, x, y, spaceship_bitmap, SPACESHIP_HEIGHT);
 }
 
 void plot_heart(int x,int y){
@@ -89,6 +88,26 @@ void plot_number(int x, int y, int n){
 void plot_asteroid(int x, int y){
     UINT8 *FB8 = Physbase();
     plot_bitmap_8(FB8, x, y, asteroid_bitmap, ASTEROID_HEIGHT); 
+}
+
+void clear_spaceship(int x, int y){
+    UINT32 *FB32 = Physbase();
+    plot_bitmap_32(FB32, x, y, clear32, 32);
+}
+
+void clear_heart(int x, int y){
+    UINT16 *FB16 = Physbase();
+    plot_bitmap_16(FB16, x, y, clear16, 16);
+}
+
+void clear_number(int x, int y){
+    UINT32 *FB32 = Physbase();
+    plot_bitmap_32(FB32, x, y, clear32, 32);
+}
+
+void clear_asteroid(int x,int y){
+    UINT8 *FB8 = Physbase();
+    plot_bitmap_8(FB8, x, y, clear8, 8);
 }
 
 void clear_screen() {
