@@ -16,9 +16,18 @@ typedef struct
 
 typedef struct {
     Spaceship spaceship;        
-    Asteroid asteroid[40];      
-    int lives = 3;
-    int score = 0;
+    Asteroid asteroid[33];      
+    int lives;
+    int score;
 } Model;
+
+void init_spaceship(Spaceship *spaceship);
+
+void init_asteroid(Asteroid *asteroid, unsigned int x, unsigned int y, int delta_x);
+
+void move_asteroid(Asteroid *asteroid);
+
+void move_spaceship(Spaceship *spaceship);
+
 
 #endif
