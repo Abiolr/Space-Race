@@ -6,6 +6,10 @@
 #define HEART_HEIGHT 16
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 400
+#define FIRST_DIGIT 550
+#define SECOND_DIGIT 580
+#define THIRD_DIGIT 610
+#define SCORE_ROW 10
 
 typedef unsigned char UINT8;
 typedef unsigned int  UINT16;

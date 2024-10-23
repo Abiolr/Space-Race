@@ -1,10 +1,10 @@
-tst_rast: tst_rast.o raster.o 
-	cc68x -g tst_rast.o raster.o -o tst_rast
+tst_rast: tst_rast.o raster.o model.o events.o
+	cc68x -g tst_rast.o raster.o model.o events.o -o tst_rast 
 
-tst_rast.o: tst_rast.c raster.h bitmap.h model.h
+tst_rast.o: tst_rast.c raster.h bitmap.h model.h events.h
 	cc68x -g -c tst_rast.c
 
-raster.o: raster.c raster.h bitmap.h model.h
+raster.o: raster.c raster.h 
 	cc68x -g -c raster.c
 
 clean:
