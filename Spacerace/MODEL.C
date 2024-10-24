@@ -1,8 +1,13 @@
+/*
+* COMP 2659 Model File
+* 
+* Purpose: To handle the positioning and movement of objects
+* Authors: Patrick Dang, Abiola Raji
+* Date: October 25, 2024
+*/
+
 #include "model.h"
 
-/*
-* Sets the spaceship's coordinates to its starting position, (320,350)
-*/
 void init_spaceship(Spaceship *spaceship)
 {
     spaceship->x = 320;             /*start middle of screen*/
@@ -10,12 +15,6 @@ void init_spaceship(Spaceship *spaceship)
     spaceship->delta_y = 0;         /*not moving at start*/
 }
 
-/*
-* Sets the asteroids' coordinates to their starting positions
-* x - a randomly generated x coordinate between 8 and 632
-* y - a fixed y coordinate for each individual asteroid
-* delta_x - the rate of change of each asteroid
-*/
 void init_asteroid(Asteroid *asteroid, unsigned int x, unsigned int y, int delta_x)
 {
     asteroid->x = x;                    
@@ -23,9 +22,6 @@ void init_asteroid(Asteroid *asteroid, unsigned int x, unsigned int y, int delta
     asteroid->delta_x = delta_x;        /*add a constant speed later*/
 }
 
-/*
-* Plots the spaceships and asteroids to their starting positions
-*/
 void init_model(Model *model)
 {
     int i;
@@ -55,25 +51,14 @@ void init_model(Model *model)
         }
 }
 
-/*
-* Moves a single asteroid x spaces
-*/
 void move_asteroid(Asteroid *asteroid)
 {
     asteroid->x += asteroid->delta_x;   /*the x is moves delta x spaces*/
 }
 
-/*
-* Moves the spaceship y spaces
-*/
 void move_spaceship(Spaceship *spaceship)
 {
     spaceship->y += spaceship->delta_y;     /*the y is moves delta y spaces*/
 }
 
-void reset_spaceship(Spaceship *spaceship)
-{
-    spaceship->x = 320;
-    spaceship->y = 350;
-}
 

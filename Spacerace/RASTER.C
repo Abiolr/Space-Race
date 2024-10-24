@@ -1,3 +1,11 @@
+/*
+* COMP 2659 Raster File
+* 
+* Purpose: To handle the plotting and clearing of objects
+* Authors: Patrick Dang, Abiola Raji
+* Date: October 25, 2024
+*/
+
 #include <osbind.h>
 #include "raster.h"
 

@@ -1,3 +1,11 @@
+/*
+* COMP 2659 Events File
+* 
+* Purpose: To handle all asynchronus, synchronus, and conditional events
+* Authors: Patrick Dang, Abiola Raji
+* Date: October 25, 2024
+*/
+
 #include "events.h"
 
 void move_spaceship_up(Model *model){
