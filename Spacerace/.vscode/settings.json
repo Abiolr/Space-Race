@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "RASTER.C": "cpp",
-    "TST_RAST.C": "cpp"
+    "TST_RAST.C": "cpp",
+    "TST_DRIVER.C": "cpp"
   }
 }

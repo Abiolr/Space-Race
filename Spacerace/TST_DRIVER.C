@@ -8,13 +8,9 @@
 
 #include <stdio.h>
 #include <osbind.h>
-#include "RASTER.H"
-#include "EVENTS.H"
-#include "MODEL.H"
+#include "events.h"
 
-
-
-int main()
+int main2()
 {
     Model model;
     init_model(&model);
