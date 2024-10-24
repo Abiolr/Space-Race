@@ -31,3 +31,5 @@ void point_scored(Model *model);
 * 
 */
 void update_asteroids(Model *model);
+
+#endif

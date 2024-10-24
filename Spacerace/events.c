@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 * COMP 2659 Events File
 * 
@@ -7,9 +6,7 @@
 * Date: October 25, 2024
 */
 
-=======
 #include <osbind.h>
->>>>>>> main
 #include "events.h"
 
 void move_spaceship_up(Model *model){
