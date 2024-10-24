@@ -1,33 +1,60 @@
+#include <osbind.h>
 #include "events.h"
 
 void move_spaceship_up(Model *model){
-    model->spaceship.delta_y = 2;
+    if(Cconis()){
+        char input = Cnecin();
+        if (input == 119){
+            model->spaceship.delta_y = -2;
+        } 
+    }
+    else{
+        stop_spaceship();
+    }
 }
 
-void move_spaceship_up(Model *model){
-    model->spaceship.delta_y = -2;
+void move_spaceship_down(Model *model){
+    if(Cconis()){
+        char input = Cnecin();
+        if (input == 114){
+            model->spaceship.delta_y = 2;
+        } 
+    } 
+    else{
+        stop_spaceship();
+    }   
 }
-void stop_spaceship_up(Model *model){
+
+void stop_spaceship(Model *model){
     model->spaceship.delta_y = 0;
 }
 
-void spaceship_collison(Model *model){
-    reset_spaceship(model->spaceship);
-    model->lives -= 1;
+int check_collision(Spaceship *spaceship, Asteroid *asteroid) {
+    return (spaceship->x < asteroid->x + 8 &&
+            spaceship->x + 32 > asteroid->x &&
+            spaceship->y < asteroid->y + ASTEROID_HEIGHT &&
+            spaceship->y + SPACESHIP_HEIGHT > asteroid->y);
+}
+
+void handle_collison(Model *model){
+    if (check_collision){
+        init_spaceship();
+        model->lives -= 1;
+    }
 }
 
 void point_scored(Model *model){
     model->score += 1; 
 }
 
-void update_asteroids(Model *model)
-{
-    for (int i = 0; i < 33; i++)
+void update_asteroids(Model *model){
+    int i;
+
+    for (i = 0; i < 33; i++)
     {
         move_asteroid(&model->asteroid[i]);
 
-        // Wrap asteroids around the screen if they go off the edge
-        if (model->asteroid[i].x > 640)  // Assuming 640 is screen width
+        if (model->asteroid[i].x > 640) 
         {
             model->asteroid[i].x = 0;
         }

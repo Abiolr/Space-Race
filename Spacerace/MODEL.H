@@ -1,5 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
+#include "RASTER.H"
 
 typedef struct
 {
@@ -25,9 +26,12 @@ void init_spaceship(Spaceship *spaceship);
 
 void init_asteroid(Asteroid *asteroid, unsigned int x, unsigned int y, int delta_x);
 
+void init_model(Model *model);
+
 void move_asteroid(Asteroid *asteroid);
 
 void move_spaceship(Spaceship *spaceship);
 
+void reset_spaceship(Spaceship *spaceship);
 
 #endif
