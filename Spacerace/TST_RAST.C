@@ -8,13 +8,11 @@
 
 #include <stdio.h>
 #include "RASTER.H"
-#include "EVENTS.H"
 
 int main()
 {
     int i = 0;
     int j = 0;
-    int k = 1;
 
     int x[] = {344, 8, 504, 216, 88, 600, 280, 168, 392, 24,
                 440, 104, 376, 264, 152, 632, 200, 40, 536, 280,

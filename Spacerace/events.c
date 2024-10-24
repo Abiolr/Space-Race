@@ -17,7 +17,7 @@ void move_spaceship_up(Model *model){
         } 
     }
     else{
-        stop_spaceship();
+        stop_spaceship(model);
     }
 }
 
@@ -29,7 +29,7 @@ void move_spaceship_down(Model *model){
         } 
     } 
     else{
-        stop_spaceship();
+        stop_spaceship(model);
     }   
 }
 
@@ -46,7 +46,7 @@ int check_collision(Spaceship *spaceship, Asteroid *asteroid) {
 
 void handle_collison(Model *model){
     if (check_collision){
-        init_spaceship();
+        init_spaceship(model);
         model->lives -= 1;
     }
 }
