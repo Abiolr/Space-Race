@@ -1,21 +1,46 @@
+#include <osbind.h>
 #include "events.h"
 
 void move_spaceship_up(Model *model){
-    clear_spaceship(model->spaceship.x,model->spaceship.y);
-    model->spaceship.delta_y = 10;
-    plot_spaceship(model->spaceship.x,model->spaceship.y);
+    if(Cconis()){
+        char input = Cnecin();
+        if (input == 119){
+            model->spaceship.delta_y = -2;
+        } 
+    }
+    else{
+        stop_spaceship();
+    }
 }
 
 void move_spaceship_down(Model *model){
-    model->spaceship.delta_y = -2;
+    if(Cconis()){
+        char input = Cnecin();
+        if (input == 114){
+            model->spaceship.delta_y = 2;
+        } 
+    } 
+    else{
+        stop_spaceship();
+    }   
 }
+
 void stop_spaceship(Model *model){
     model->spaceship.delta_y = 0;
 }
 
-void spaceship_collison(Model *model){
-    reset_spaceship(&model->spaceship);
-    model->lives -= 1;
+int check_collision(Spaceship *spaceship, Asteroid *asteroid) {
+    return (spaceship->x < asteroid->x + 8 &&
+            spaceship->x + 32 > asteroid->x &&
+            spaceship->y < asteroid->y + ASTEROID_HEIGHT &&
+            spaceship->y + SPACESHIP_HEIGHT > asteroid->y);
+}
+
+void handle_collison(Model *model){
+    if (check_collision){
+        init_spaceship();
+        model->lives -= 1;
+    }
 }
 
 void point_scored(Model *model){

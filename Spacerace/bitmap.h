@@ -1,4 +1,6 @@
-#include "types.h"
+#ifndef BITMAP_H
+#define BITMAP_H
+#include "TYPES.H"
 
 UINT32 spaceship_bitmap[SPACESHIP_HEIGHT] =
 {
@@ -494,3 +496,5 @@ UINT8 clear8[8] =
     0x00,
     0x00
 };
+
+#endif

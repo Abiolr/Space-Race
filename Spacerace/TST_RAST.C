@@ -1,10 +1,5 @@
 #include <osbind.h>
-#include <stdlib.h>
-#include "RASTER.H"
 #include "EVENTS.H"
-#include "MODEL.H"
-
-
 
 int main()
 {
@@ -12,24 +7,13 @@ int main()
     int j = 0;
     int k = 1;
 
-    int rand_value;
-
     int x[] = {344, 8, 504, 216, 88, 600, 280, 168, 392, 24,
-                440, 104, 376, 264, 152, 632, 200, 40, 536, 280,
-                280, 392, 152, 616, 72, 328, 488, 440, 136, 392,
-                440, 280, 24};
-                
-
+             440, 104, 376, 264, 152, 632, 200, 40, 536, 280,
+             280, 392, 152, 616, 72, 328, 488, 440, 136, 392,
+             440, 280, 24};
+   
     Model model;
     init_model(&model);
-
-    clear_screen();
-    
-    while (i < 5){
-        move_spaceship_up(&model);
-        i += 1;
-    }
-
 
 
     printf("Initial Spaceship position: x=%d, y=%d\n", model.spaceship.x, model.spaceship.y);
@@ -41,24 +25,21 @@ int main()
     move_spaceship_down(&model.spaceship);
     move_spaceship(&model.spaceship);
     printf("Spaceship after moving down: x=%d, y=%d\n", model.spaceship.x, model.spaceship.y);
-
-    rand_value = rand();
-    printf("Random Value: %d\n", rand_value);
     
 
-/*
+
     for (i = 0; i < 33; i++){
         printf("Asteroid before move: x=%d, y=%d\n", model.asteroid[i].x, model.asteroid[i].y);
         update_asteroids(&model);
         printf("Asteroid after move: x=%d, y=%d\n", model.asteroid[i].x, model.asteroid[i].y);
     }
 
-    /*
+
     printf("Asteroid[0] before move: x=%d, y=%d\n", model.asteroid[0].x, model.asteroid[0].y);
     update_asteroids(&model);
     printf("Asteroid[0] after move: x=%d, y=%d\n", model.asteroid[0].x, model.asteroid[0].y);
+*/
 
-/*
     clear_screen();
 
     for (i = 0; i < 33; i += 3)
@@ -66,8 +47,8 @@ int main()
         int y = (j << 5) + 8;
 
         plot_asteroid(x[i], y);
-        plot_asteroid(x[i+1], y);
-        plot_asteroid(x[i+2], y);
+        plot_asteroid(x[i + 1], y);
+        plot_asteroid(x[i + 2], y);
 
         j += 1;
         }
@@ -76,12 +57,12 @@ int main()
     plot_number(SECOND_DIGIT,SCORE_ROW,2);
     plot_number(THIRD_DIGIT,SCORE_ROW,0);
 
-    plot_space_ship(320,350);
+    plot_spaceship(320,350);
     
     plot_heart(610,50);
     plot_heart(600,50);
     plot_heart(580,50);
-    */
+
 
     return 0;
     

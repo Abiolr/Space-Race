@@ -1,7 +1,6 @@
 #ifndef RASTER_H
 #define RASTER_H
-#include "bitmap.h"
-#include "types.h"
+#include "BITMAP.H"
 
 /* [TO DO] the functions below are examples. Replace them! */
 void plot_bitmap_8(UINT8 *base, int x, int y, 
