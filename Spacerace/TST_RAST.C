@@ -6,7 +6,6 @@
 * Date: October 25, 2024
 */
 
-#include <stdio.h>
 #include "RASTER.H"
 
 int main()
