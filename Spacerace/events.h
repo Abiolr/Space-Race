@@ -1,5 +1,6 @@
-#include "model.h"
-#include "RASTER.H"
+#ifndef EVENTS_H
+#define EVENTS_H
+#include "MODEL.H"
 
 /*
 * 

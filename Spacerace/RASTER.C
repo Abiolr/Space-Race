@@ -98,22 +98,17 @@ void plot_asteroid(int x, int y){
     plot_bitmap_8(FB8, x, y, asteroid_bitmap, ASTEROID_HEIGHT); 
 }
 
-void clear_spaceship(int x, int y){
+void clear_32(int x, int y){
     UINT32 *FB32 = Physbase();
     plot_bitmap_32(FB32, x, y, clear32, 32);
 }
 
-void clear_heart(int x, int y){
+void clear_16(int x, int y){
     UINT16 *FB16 = Physbase();
     plot_bitmap_16(FB16, x, y, clear16, 16);
 }
 
-void clear_number(int x, int y){
-    UINT32 *FB32 = Physbase();
-    plot_bitmap_32(FB32, x, y, clear32, 32);
-}
-
-void clear_asteroid(int x,int y){
+void clear_8(int x,int y){
     UINT8 *FB8 = Physbase();
     plot_bitmap_8(FB8, x, y, clear8, 8);
 }

@@ -9,9 +9,6 @@
 #include <stdio.h>
 #include "RASTER.H"
 #include "EVENTS.H"
-#include "MODEL.H"
-
-
 
 int main()
 {
@@ -31,8 +28,8 @@ int main()
         int y = (j << 5) + 8;
 
         plot_asteroid(x[i], y);
-        plot_asteroid(x[i+1], y);
-        plot_asteroid(x[i+2], y);
+        plot_asteroid(x[i + 1], y);
+        plot_asteroid(x[i + 2], y);
 
         j += 1;
         }

@@ -1,5 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
+#include "RASTER.H"
 
 typedef struct
 {
