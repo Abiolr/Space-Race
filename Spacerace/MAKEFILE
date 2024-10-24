@@ -1,16 +1,16 @@
-all: tst_rast tst_driver
+all: tst_rast tst_d
 
 tst_rast: tst_rast.o raster.o
 	cc68x -g tst_rast.o raster.o -o tst_rast
 
-tst_driver: tst_driver.o model.o events.o
-	cc68x -g tst_driver.o model.o events.o -o tst_driver
+tst_d: tst_d.o model.o events.o
+	cc68x -g tst_d.o model.o events.o -o tst_d
 
 tst_rast.o: tst_rast.c raster.h
 	cc68x -g -c tst_rast.c 
 
-tst_driver.o: tst_driver.c raster.h model.h events.h
-	cc68x -g -c tst_driver.c 
+tst_d.o: tst_d.c raster.h model.h events.h
+	cc68x -g -c tst_d.c 
 
 raster.o: raster.c raster.h bitmap.h
 	cc68x -g -c raster.c

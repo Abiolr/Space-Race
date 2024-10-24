@@ -10,7 +10,7 @@
 #include <osbind.h>
 #include "events.h"
 
-int main2()
+int main()
 {
     Model model;
     init_model(&model);
