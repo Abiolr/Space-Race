@@ -1,6 +1,6 @@
 all: joe tst_rast tst_d
 
-tst_rast: tst_rast.o raster.omakw
+tst_rast: tst_rast.o raster.o
 	cc68x -g tst_rast.o raster.o -o tst_rast
 
 tst_d: tst_d.o model.o events.o
