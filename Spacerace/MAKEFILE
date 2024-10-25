@@ -1,6 +1,6 @@
-all: tst_rast tst_d
+all: joe tst_rast tst_d
 
-tst_rast: tst_rast.o raster.o
+tst_rast: tst_rast.o raster.omakw
 	cc68x -g tst_rast.o raster.o -o tst_rast
 
 tst_d: tst_d.o model.o events.o
@@ -9,10 +9,10 @@ tst_d: tst_d.o model.o events.o
 tst_rast.o: tst_rast.c raster.h
 	cc68x -g -c tst_rast.c 
 
-tst_d.o: tst_d.c raster.h model.h events.h
+tst_d.o: tst_d.c model.h events.h
 	cc68x -g -c tst_d.c 
 
-raster.o: raster.c raster.h bitmap.h
+raster.o: raster.c raster.h 
 	cc68x -g -c raster.c
 
 model.o: model.c model.h
@@ -21,5 +21,5 @@ model.o: model.c model.h
 events.o: events.c events.h
 	cc68x -g -c events.c
 
-clean:
+joe:
 	$(RM) *.o *.tos
