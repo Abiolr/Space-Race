@@ -10,27 +10,18 @@
 #include "events.h"
 
 void move_spaceship_up(Model *model){
-    if(Cconis()){
-        char input = Cnecin();
-        if (input == 119){
-            model->spaceship.delta_y = -2;
-        } 
-    }
-    else{
-        stop_spaceship(model);
+    model->spaceship.delta_y = -2;    
+    if (model->spaceship.y < 0){
+        init_spaceship(&model->spaceship);
+        point_scored(model);
     }
 }
 
 void move_spaceship_down(Model *model){
-    if(Cconis()){
-        char input = Cnecin();
-        if (input == 114){
-            model->spaceship.delta_y = 2;
-        } 
-    } 
-    else{
-        stop_spaceship(model);
-    }   
+    model->spaceship.delta_y = 2;
+    if (model->spaceship.y > 400){
+        model->spaceship.y = 400;
+    }
 }
 
 void stop_spaceship(Model *model){
@@ -44,9 +35,9 @@ int check_collision(Spaceship *spaceship, Asteroid *asteroid) {
             spaceship->y + SPACESHIP_HEIGHT > asteroid->y);
 }
 
-void handle_collison(Model *model){
-    if (check_collision){
-        init_spaceship(model);
+void handle_collison(Model *model, int i){
+    if (check_collision(&model->spaceship, &model->asteroid[i])){
+        init_spaceship(&model->spaceship);
         model->lives -= 1;
     }
 }
@@ -61,7 +52,7 @@ void update_asteroids(Model *model){
     for (i = 0; i < 33; i++)
     {
         move_asteroid(&model->asteroid[i]);
-
+        handle_collison(model, i);
         if (model->asteroid[i].x > 640) 
         {
             model->asteroid[i].x = 0;

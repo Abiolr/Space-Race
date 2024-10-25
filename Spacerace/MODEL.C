@@ -60,10 +60,3 @@ void move_spaceship(Spaceship *spaceship)
 {
     spaceship->y += spaceship->delta_y;     /*the y is moves delta y spaces*/
 }
-
-void reset_spaceship(Spaceship *spaceship)
-{
-    spaceship->x = 320;
-    spaceship->y = 350;
-}
-
