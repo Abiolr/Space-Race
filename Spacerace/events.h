@@ -1,6 +1,7 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 #include "MODEL.H"
+#include "TYPES.H"
 
 /*
 * Updates the displacment of spaceship object towards 

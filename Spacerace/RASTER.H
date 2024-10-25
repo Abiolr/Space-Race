@@ -40,13 +40,11 @@ void plot_number(int x, int y, int n);
 */    
 void plot_asteroid(int x, int y);
 
-void clear_spaceship(int x, int y);
+void clear_32(int x, int y);
 
-void clear_heart(int x, int y);
+void clear_16(int x, int y);
 
-void clear_number(int x, int y);
-
-void clear_asteroid(int x,int y);
+void clear_8(int x, int y);
 
 void clear_screen();
 
