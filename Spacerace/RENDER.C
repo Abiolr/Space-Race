@@ -4,34 +4,37 @@ void render(const Model *model)
 {
     clear_screen();
     
-    render_spaceship(model->spaceship, base);
+    render_spaceship(&model->spaceship);
 
-    render_asteroids(model->asteroid, base);
+    render_asteroids(model);
 
-    render_score(model->score, base);
+    render_score(model);
 
-    render_hearts(model->lives, base);
+    render_hearts(model);
 }
 
-void render_asteroids(const Asteroid[] *asteroids)
+void render_asteroids(const Model *model)
 {
-    clear_asteroid();
-    plot_asteroid();
+    int i = 0;
+    for (i; i < 33; i+=1){
+        /*clear_8(model->asteroid[i].x, model->asteroid[i].y);*/
+        plot_asteroid(model->asteroid[i].x, model->asteroid[i].y);
+    }
 }
 
 void render_spaceship(const Spaceship *spaceship)
 {
-    clear_spaceship(spaceship->x, spaceship->y);
+    /*clear_32(spaceship->x, spaceship->y);*/
     plot_spaceship(spaceship->x, spaceship->y);
 }
 
-void render_hearts(int *lives)
+void render_hearts(const Model *model)
 {
-    clear16(610,50);
-    clear16(600,50);
-    clear16(580,50);
+    /*clear_16(610,50);
+    clear_16(600,50);
+    clear_16(580,50);*/
 
-    switch(lives){
+    switch(model->lives){
         case 3:
             plot_heart(610,50);
             plot_heart(600,50);
@@ -40,15 +43,21 @@ void render_hearts(int *lives)
         case 2:
             plot_heart(610,50);
             plot_heart(600,50);
-=           break;
+            break;
         case 1:
             plot_heart(610,50);
             break;
     }
 }
 
-void render_score(int *score)
+void render_score(const Model *model)
 {
-    clear32();
-    plot_number();
+    int hundreds = model->score/100;
+    int tens = model->score/10 % 10;
+    int ones = model->score % 10;
+
+    /*clear_32();*/
+    plot_number(FIRST_DIGIT,SCORE_ROW,hundreds);
+    plot_number(SECOND_DIGIT,SCORE_ROW,tens);
+    plot_number(THIRD_DIGIT,SCORE_ROW,ones);
 }

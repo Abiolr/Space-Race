@@ -21,12 +21,20 @@ void move_spaceship_down(Model *model);
 */
 void stop_spaceship(Model *model);
 
+
+/*
+*
+*/
+int check_collision(Spaceship *spacship, Asteroid *asteroid);
+
 /*
 * Checks for conflicting hitboxes between 
 * asteroids and spacship
 */
-void spaceship_collison(Model *model);
-
+void asteroid_collision(Model *model, int i);
+/*
+void spaceship_collision(Model *model);
+*/
 /*
 * updates the score by adding 1 to the model
 */
