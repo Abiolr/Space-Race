@@ -8,6 +8,8 @@
 
 #include <osbind.h>
 #include "raster.h"
+#include "BITMAP.H" 
+
 
 void plot_bitmap_8(UINT8 *base, int x, int y, 
                     const UINT8 *bitmap, unsigned int height)

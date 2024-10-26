@@ -2,15 +2,16 @@
 #define RENDER_H
 
 #include "MODEL.H"
+#include "RASTER.H"
 
-void render(const Model *model, UINT32 *base);
+void render(const Model *model);
 
-void render_asteroids(const Asteroid[] *asteroids, UINT8 *base);
+void render_asteroids(const Model *model);
 
-void render_spaceship(const Spaceship *spaceship, UINT32 *base);
+void render_spaceship(const Spaceship *spaceship);
 
-void render_hearts(int *lives, UINT16 *base);
+void render_hearts(const Model *model);
 
-void render_score(int *score , UINT32 *base);
+void render_score(const Model *model);
 
 #endif

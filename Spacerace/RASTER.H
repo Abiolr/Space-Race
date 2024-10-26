@@ -1,6 +1,6 @@
 #ifndef RASTER_H
 #define RASTER_H
-#include "BITMAP.H" 
+#include "TYPES.H"
 
 /*
 * Plots a 8px by 8px bitmap
