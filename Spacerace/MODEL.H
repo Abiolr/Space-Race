@@ -1,8 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
-
-int MAX_ASTEROID_SPEED = 10;
-int MIN_ASTEROID_SPEED = 2;
+#include "TYPES.H"
 
 typedef struct
 {

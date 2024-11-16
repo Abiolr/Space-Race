@@ -75,6 +75,7 @@ void init_model(Model *model)
 {
     int i;
     int j = 0;
+    int k = 1;
 
     int asteroid_x_positions[] = {
         344, 8, 504, 216, 88, 600, 280, 168, 392, 24,
@@ -92,11 +93,11 @@ void init_model(Model *model)
     for (i = 0; i < 33; i += 3)
     {
         int y = (j << 5) + 8;
-        int k = rand() % (MAX_ASTEROID_SPEED - MIN_ASTEROID_SPEED + 1) + MIN_ASTEROID_SPEED;
+        int speed = rand() % (MAX_ASTEROID_SPEED - MIN_ASTEROID_SPEED + 1) + MIN_ASTEROID_SPEED;
 
-        init_asteroid(&model->asteroid[i], asteroid_x_positions[i], y, k);
-        init_asteroid(&model->asteroid[i + 1], asteroid_x_positions[i + 1], y, k);
-        init_asteroid(&model->asteroid[i + 2], asteroid_x_positions[i + 2], y, k);
+        init_asteroid(&model->asteroid[i], asteroid_x_positions[i], y, speed * k);
+        init_asteroid(&model->asteroid[i + 1], asteroid_x_positions[i + 1], y, speed * k);
+        init_asteroid(&model->asteroid[i + 2], asteroid_x_positions[i + 2], y, speed * k);
 
         j += 1;
         k *= -1;
