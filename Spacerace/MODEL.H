@@ -1,6 +1,8 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+int MAX_ASTEROID_SPEED = 10;
+int MIN_ASTEROID_SPEED = 2;
 
 typedef struct
 {
@@ -21,6 +23,8 @@ typedef struct {
     int lives;
     int score;
 } Model;
+
+
 
 void init_spaceship(Spaceship *spaceship);
 

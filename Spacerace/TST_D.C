@@ -20,6 +20,8 @@ int main()
 
     printf("Initial Spaceship position: x=%d, y=%d\n", model.spaceship.cur_x, model.spaceship.cur_y);
     printf("Asteroid[31] before moving: x=%d, y=%d\n", model.asteroid[31].cur_x, model.asteroid[31].cur_y);
+    printf("Initial Spaceship position: x=%d, y=%d\n", model.spaceship.cur_x, model.spaceship.cur_y);
+    printf("Asteroid[31] before moving: x=%d, y=%d\n", model.asteroid[28].cur_x, model.asteroid[31].cur_y);
 
     input = Cnecin();
 
@@ -39,6 +41,7 @@ int main()
             case SPACE:
             update_asteroids(&model);
             printf("Asteroid[31] after moving: x=%d, y=%d\n", model.asteroid[31].cur_x, model.asteroid[31].cur_y);
+            printf("Asteroid[31] after moving: x=%d, y=%d\n", model.asteroid[28].cur_x, model.asteroid[28].cur_y);
             break;
             }
             
