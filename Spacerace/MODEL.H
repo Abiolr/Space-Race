@@ -1,6 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
-
+#include "TYPES.H"
 
 typedef struct
 {
@@ -21,6 +21,8 @@ typedef struct {
     int lives;
     int score;
 } Model;
+
+
 
 void init_spaceship(Spaceship *spaceship);
 

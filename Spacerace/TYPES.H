@@ -20,6 +20,8 @@
 #define NO_INPUT -1
 #define BUFFER_SIZE 32000
 #define ALIGNMENT 256
+#define MAX_ASTEROID_SPEED 10
+#define MIN_ASTEROID_SPEED 2
 
 typedef unsigned char UINT8;
 typedef unsigned int  UINT16;

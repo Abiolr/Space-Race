@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "GAME.C": "cpp",
+        "MUSIC.C": "cpp",
+        "MODEL.C": "cpp"
+    }
+}

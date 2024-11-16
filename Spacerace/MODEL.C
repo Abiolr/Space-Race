@@ -6,6 +6,8 @@
 * Date: October 25, 2024
 */
 
+#include <stdlib.h>
+#include <time.h>
 #include "MODEL.H"
 
 /*
@@ -82,6 +84,7 @@ void init_model(Model *model)
         440, 280, 24
     };
 
+    srand(time(NULL));
     init_spaceship(&model->spaceship);
 
     model->lives = 3;
@@ -90,10 +93,11 @@ void init_model(Model *model)
     for (i = 0; i < 33; i += 3)
     {
         int y = (j << 5) + 8;
+        int speed = rand() % (MAX_ASTEROID_SPEED - MIN_ASTEROID_SPEED + 1) + MIN_ASTEROID_SPEED;
 
-        init_asteroid(&model->asteroid[i], asteroid_x_positions[i], y, 2 * k);
-        init_asteroid(&model->asteroid[i + 1], asteroid_x_positions[i + 1], y, 2 * k);
-        init_asteroid(&model->asteroid[i + 2], asteroid_x_positions[i + 2], y, 2 * k);
+        init_asteroid(&model->asteroid[i], asteroid_x_positions[i], y, speed * k);
+        init_asteroid(&model->asteroid[i + 1], asteroid_x_positions[i + 1], y, speed * k);
+        init_asteroid(&model->asteroid[i + 2], asteroid_x_positions[i + 2], y, speed * k);
 
         j += 1;
         k *= -1;
