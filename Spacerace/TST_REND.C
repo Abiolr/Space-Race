@@ -4,37 +4,44 @@
 #include "MODEL.H"
 #include "EVENTS.C"
 #include "raster.h"
+#include "types.h"
 
 
 int main(){
 
-    char input;
+    char input = NO_INPUT;
 
     Model model;
     init_model(&model);
     clear_screen();
-
+    render(&model);
     input = Cnecin();
 
     while (input != ESC)
     {
-        switch(input) {
-            case w:
-            move_spaceship_up(&model);
-            move_spaceship(&model.spaceship);
-            render(&model);
-            break;
-            case s:
-            move_spaceship_down(&model);
-            move_spaceship(&model.spaceship);
-            render(&model);
-            break;
-            case SPACE:
-            update_asteroids(&model);
-            render(&model);
-            break;
+        Vsync();
+        if (Cconis()){
+            input = Cnecin();
+        }
+        else{
+            input = NO_INPUT; 
+        }
+
+        update_asteroids(&model);
+        render(&model);
+
+        if (input != NO_INPUT){
+            switch(input) {
+                case w:
+                move_spaceship_up(&model);
+                move_spaceship(&model.spaceship);
+                break;
+                case s:
+                move_spaceship_down(&model);
+                move_spaceship(&model.spaceship);
+                break;
+                }
             }
-        input = Cnecin();
     }
     return 0;
 }

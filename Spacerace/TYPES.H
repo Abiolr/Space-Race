@@ -10,11 +10,16 @@
 #define FIRST_DIGIT 550
 #define SECOND_DIGIT 580
 #define THIRD_DIGIT 610
-#define SCORE_ROW 10
+#define SCORE_ROW 12
 #define w 119
 #define s 115
 #define ESC 27
 #define SPACE 32
+#define FALSE 0
+#define TRUE 1
+#define NO_INPUT -1
+#define BUFFER_SIZE 32000
+#define ALIGNMENT 256
 
 typedef unsigned char UINT8;
 typedef unsigned int  UINT16;

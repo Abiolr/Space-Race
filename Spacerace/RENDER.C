@@ -1,6 +1,7 @@
 #include "RENDER.H"
 #include "raster.h"
-
+#include "EVENTS.H"
+#include "types.h"
 
 /*
  * Function: render
@@ -17,12 +18,21 @@
  * Assumptions:
  *   The model pointer is valid and points to an allocated Model structure.
  */
+/*
 void render(const Model *model)
 {
-    render_spaceship(&model->spaceship);
-    render_asteroids(model);
-    render_score(model);
-    render_hearts(model);
+    render_hearts(base, model);
+    render_spaceship(base, &model->spaceship); MIGHT REMOVE AND CALL EACH ONE***
+    render_asteroids(base, model);
+    render_score(base, model);
+}
+*/
+
+void render(UINT32 *buffer, Model *model) {
+    render_hearts((UINT16 *)buffer, model);
+    render_score((UINT32 *)buffer, model);
+    render_asteroids((UINT8 *)buffer, model);
+    render_spaceship((UINT32 *)buffer, &model->spaceship);
 }
 
 /*
@@ -39,12 +49,12 @@ void render(const Model *model)
  * Assumptions:
  *   The model pointer is valid and points to an allocated Model structure.
  */
-void render_asteroids(const Model *model)
+void render_asteroids(UINT8 *base, Model *model)
 {
-    int i = 0;
-    for (i; i < 33; i += 1) {
-        clear_8(model->asteroid[i].prev_x, model->asteroid[i].cur_y );
-        plot_asteroid(model->asteroid[i].cur_x, model->asteroid[i].cur_y);
+    int i;
+    for (i = 0; i < 33; i += 1) {
+        clear_8(base, model->asteroid[i].prev_x, model->asteroid[i].cur_y );
+        plot_asteroid(base, model->asteroid[i].cur_x, model->asteroid[i].cur_y);
     }
 }
 
@@ -62,10 +72,10 @@ void render_asteroids(const Model *model)
  * Assumptions:
  *   The spaceship pointer is valid and points to an allocated Spaceship structure.
  */
-void render_spaceship(const Spaceship *spaceship)
+void render_spaceship(UINT32 *base, const Spaceship *spaceship)
 {
-    clear_32(spaceship->cur_x, spaceship->prev_y);
-    plot_spaceship(spaceship->cur_x, spaceship->cur_y);
+    clear_32(base, spaceship->cur_x, spaceship->prev_y);
+    plot_spaceship(base, spaceship->cur_x, spaceship->cur_y);
 }
 
 /*
@@ -83,28 +93,28 @@ void render_spaceship(const Spaceship *spaceship)
  *   The model pointer is valid and points to an allocated Model structure.
  */
 
-void render_hearts(const Model *model)
+void render_hearts(UINT16 *base, const Model *model)
 {
     switch (model->lives) {
         case 3:
-            plot_heart(610, 50);
-            plot_heart(600, 50);
-            plot_heart(580, 50);
+            plot_heart(base, 610, 50);
+            plot_heart(base, 600, 50);
+            plot_heart(base, 580, 50);
             break;
         case 2:
-            plot_heart(610, 50);
-            plot_heart(600, 50);
-            clear_16(580,50); 
+            plot_heart(base, 610, 50);
+            plot_heart(base, 600, 50);
+            clear_16(base, 580,50); 
             break;
         case 1:
-            plot_heart(610, 50);
-            clear_16(600,50); 
-            clear_16(580,50); 
+            plot_heart(base, 610, 50);
+            clear_16(base, 600,50); 
+            clear_16(base, 580,50); 
             break;
         case 0:
-            clear_16(610,50); 
-            clear_16(600,50); 
-            clear_16(580,50); 
+            clear_16(base, 610,50); 
+            clear_16(base, 600,50); 
+            clear_16(base, 580,50); 
     }
 }
 
@@ -122,17 +132,17 @@ void render_hearts(const Model *model)
  * Assumptions:
  *   The model pointer is valid and points to an allocated Model structure.
  */
-void render_score(const Model *model)
+void render_score(UINT32 *base, const Model *model)
 {
     int hundreds = (model->score / 100) %10;
     int tens = (model->score / 10) % 10;
     int ones = model->score % 10;
 
-    clear_32(FIRST_DIGIT, SCORE_ROW);
-    clear_32(SECOND_DIGIT,SCORE_ROW);
-    clear_32(THIRD_DIGIT, SCORE_ROW);
+    clear_32(base, FIRST_DIGIT, SCORE_ROW);
+    clear_32(base, SECOND_DIGIT,SCORE_ROW);
+    clear_32(base, THIRD_DIGIT, SCORE_ROW);
 
-    plot_number(FIRST_DIGIT, SCORE_ROW, hundreds);
-    plot_number(SECOND_DIGIT, SCORE_ROW, tens);
-    plot_number(THIRD_DIGIT, SCORE_ROW, ones);
+    plot_number(base, FIRST_DIGIT, SCORE_ROW, hundreds);
+    plot_number(base, SECOND_DIGIT, SCORE_ROW, tens);
+    plot_number(base, THIRD_DIGIT, SCORE_ROW, ones);
 }

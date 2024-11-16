@@ -89,9 +89,10 @@ void plot_bitmap_32(UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned i
  * Returns:
  *      None.
  */
-void plot_spaceship(UINT32 *base, int x, int y)
+void plot_spaceship(int x, int y)
 {
-    plot_bitmap_32(base, x, y, spaceship_bitmap, SPACESHIP_HEIGHT);
+    UINT32 *FB32 = Physbase();
+    plot_bitmap_32(FB32, x, y, spaceship_bitmap, SPACESHIP_HEIGHT);
 }
 
 /*
@@ -102,9 +103,10 @@ void plot_spaceship(UINT32 *base, int x, int y)
  * Returns:
  *      None.
  */
-void plot_heart(UINT16 *base, int x, int y)
+void plot_heart(int x, int y)
 {
-    plot_bitmap_16(base, x, y, heart_bitmap, HEART_HEIGHT);
+    UINT16 *FB16 = Physbase();
+    plot_bitmap_16(FB16, x, y, heart_bitmap, HEART_HEIGHT);
 }
 
 /*
@@ -116,19 +118,21 @@ void plot_heart(UINT16 *base, int x, int y)
  * Returns:
  *      None.
  */
-void plot_number(UINT32 *base, int x, int y, int n)
+void plot_number(int x, int y, int n)
 {
+    UINT32 *FB32 = Physbase();
+
     switch (n) {
-        case 0: plot_bitmap_32(base, x, y, number_zero, NUMBER_HEIGHT); break;
-        case 1: plot_bitmap_32(base, x, y, number_one, NUMBER_HEIGHT); break;
-        case 2: plot_bitmap_32(base, x, y, number_two, NUMBER_HEIGHT); break;
-        case 3: plot_bitmap_32(base, x, y, number_three, NUMBER_HEIGHT); break;
-        case 4: plot_bitmap_32(base, x, y, number_four, NUMBER_HEIGHT); break;
-        case 5: plot_bitmap_32(base, x, y, number_five, NUMBER_HEIGHT); break;
-        case 6: plot_bitmap_32(base, x, y, number_six, NUMBER_HEIGHT); break;
-        case 7: plot_bitmap_32(base, x, y, number_seven, NUMBER_HEIGHT); break;
-        case 8: plot_bitmap_32(base, x, y, number_eight, NUMBER_HEIGHT); break;
-        case 9: plot_bitmap_32(base, x, y, number_nine, NUMBER_HEIGHT); break;
+        case 0: plot_bitmap_32(FB32, x, y, number_zero, NUMBER_HEIGHT); break;
+        case 1: plot_bitmap_32(FB32, x, y, number_one, NUMBER_HEIGHT); break;
+        case 2: plot_bitmap_32(FB32, x, y, number_two, NUMBER_HEIGHT); break;
+        case 3: plot_bitmap_32(FB32, x, y, number_three, NUMBER_HEIGHT); break;
+        case 4: plot_bitmap_32(FB32, x, y, number_four, NUMBER_HEIGHT); break;
+        case 5: plot_bitmap_32(FB32, x, y, number_five, NUMBER_HEIGHT); break;
+        case 6: plot_bitmap_32(FB32, x, y, number_six, NUMBER_HEIGHT); break;
+        case 7: plot_bitmap_32(FB32, x, y, number_seven, NUMBER_HEIGHT); break;
+        case 8: plot_bitmap_32(FB32, x, y, number_eight, NUMBER_HEIGHT); break;
+        case 9: plot_bitmap_32(FB32, x, y, number_nine, NUMBER_HEIGHT); break;
     }
 }
 
@@ -140,9 +144,10 @@ void plot_number(UINT32 *base, int x, int y, int n)
  * Returns:
  *      None.
  */
-void plot_asteroid(UINT8 *base, int x, int y)
+void plot_asteroid(int x, int y)
 {
-    plot_bitmap_8(base, x, y, asteroid_bitmap, ASTEROID_HEIGHT); 
+    UINT8 *FB8 = Physbase();
+    plot_bitmap_8(FB8, x, y, asteroid_bitmap, ASTEROID_HEIGHT); 
 }
 
 /*
@@ -153,9 +158,10 @@ void plot_asteroid(UINT8 *base, int x, int y)
  * Returns:
  *      None.
  */
-void clear_32(UINT32 *base, int x, int y)
+void clear_32(int x, int y)
 {
-    plot_bitmap_32(base, x, y, clear32, 32);
+    UINT32 *FB32 = Physbase();
+    plot_bitmap_32(FB32, x, y, clear32, 32);
 }
 
 /*
@@ -166,9 +172,10 @@ void clear_32(UINT32 *base, int x, int y)
  * Returns:
  *      None.
  */
-void clear_16(UINT16 *base, int x, int y)
+void clear_16(int x, int y)
 {
-    plot_bitmap_16(base, x, y, clear16, 16);
+    UINT16 *FB16 = Physbase();
+    plot_bitmap_16(FB16, x, y, clear16, 16);
 }
 
 /*
@@ -179,9 +186,10 @@ void clear_16(UINT16 *base, int x, int y)
  * Returns:
  *      None.
  */
-void clear_8(UINT8 *base, int x, int y)
+void clear_8(int x, int y)
 {
-    plot_bitmap_8(base, x, y, clear8, 8);
+    UINT8 *FB8 = Physbase();
+    plot_bitmap_8(FB8, x, y, clear8, 8);
 }
 
 /*
@@ -194,8 +202,9 @@ void clear_8(UINT8 *base, int x, int y)
  * Assumptions:
  *      The screen dimensions are defined by SCREEN_WIDTH and SCREEN_HEIGHT.
  */
-void clear_screen(UINT32 *base)
+void clear_screen()
 {
+    UINT32 *base = Physbase();
     UINT32 color = 0x00000000; 
 
     int i = 0;
