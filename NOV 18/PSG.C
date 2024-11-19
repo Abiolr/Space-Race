@@ -1,11 +1,28 @@
+/*
+ * COMP 2659 PSG File
+ * 
+ * Purpose: To handle low-level interactions with the Programmable Sound Generator (PSG),
+ *          including register operations, tone generation, volume control, and channel management.
+ * Authors: Patrick Dang, Abiola Raji
+ * Date: November 18, 2024
+ */
+
 #include "psg.h"
 
 volatile char *PSG_reg_select = 0xFF8800;
 volatile char *PSG_reg_write  = 0xFF8802;
 
+/*
+ * Function: write_psg
+ * Purpose: Writes a value to a specified PSG register.
+ * Parameters:
+ *      reg - The register number (0-15) to write to.
+ *      val - The 8-bit value to write to the register.
+ * Returns:
+ *      None.
+ */
 void write_psg(int reg, UINT8 val)
 {
-    /*check if register and value to write are both valid*/
     if(reg >= 0 && reg <= 15 && val >= 0 && val <= 255)
     {    
         *PSG_reg_select = reg;
@@ -13,23 +30,19 @@ void write_psg(int reg, UINT8 val)
     }
 }
 
-UINT8 read_psg(int reg)
-{
-    UINT8 val;  
-
-    if(reg >= 0 && reg <= 15)
-    {   
-        *PSG_reg_select = reg;
-        val = *PSG_reg_select;
-    }
-    return val;
-}
-
+/*
+ * Function: set_tone
+ * Purpose: Sets the tone frequency for a specified channel.
+ * Parameters:
+ *      channel - The channel to set (CHANNEL_A, CHANNEL_B, or CHANNEL_C).
+ *      tuning - 12-bit value determining the tone frequency.
+ * Returns:
+ *      None.
+ */
 void set_tone(int channel, int tuning)
 {
-    /*separate 12-bit tuning into individual 8-bit and 4-bit values*/
-    UINT8 fine_tuning = tuning & 0x00FF;           /*LSB*/
-    UINT8 coarse_tuning = (tuning & 0x0F00) >> 8;  /*MSB*/
+    UINT8 fine_tuning = tuning & 0x00FF;
+    UINT8 coarse_tuning = (tuning & 0x0F00) >> 8;
 
     switch(channel)
     {
@@ -53,9 +66,17 @@ void set_tone(int channel, int tuning)
     }
 }
 
+/*
+ * Function: set_volume
+ * Purpose: Sets the volume level for a specified channel.
+ * Parameters:
+ *      channel - The channel to set (CHANNEL_A, CHANNEL_B, or CHANNEL_C).
+ *      vol - Volume level (0-31).
+ * Returns:
+ *      None.
+ */
 void set_volume(int channel, int vol)
 {
-    /*get the 5-bit value from the int*/
     UINT8 volume = vol & 0x001F;
 
     switch(channel)
@@ -77,29 +98,16 @@ void set_volume(int channel, int vol)
     }
 }
 
-void set_noise(int tuning)
-{
-    /*get the 5-bit value from the int*/
-    UINT8 freq = tuning & 0x001F;
-    write_psg(NOISE_FREQ_REG, freq);
-}
-
-void set_envelope(int shape, UINT16 sustain)
-{
-    UINT8 sustain_fine, sustain_rough, shape_bits;
-
-    /*separate 16-bit sustain into 2 individual 8-bit values*/
-    sustain_fine = sustain & 0x00FF;           /*LSB*/
-    sustain_rough = (sustain & 0xFF00) >> 8;   /*MSB*/
-
-    write_psg(ENV_FINE, sustain_fine);
-    write_psg(ENV_ROUGH, sustain_rough);
-
-    shape_bits = shape & 0x000F;
-
-    write_psg(ENV_SHAPE_CONTROL, shape_bits);
-}
-
+/*
+ * Function: enable_channel
+ * Purpose: Enables or disables tone and noise for a specified channel.
+ * Parameters:
+ *      channel - The channel to configure (CHANNEL_A, CHANNEL_B, or CHANNEL_C).
+ *      tone_on - Flag to enable (1) or disable (0) tone.
+ *      noise_on - Flag to enable (1) or disable (0) noise.
+ * Returns:
+ *      None.
+ */
 void enable_channel(int channel, int tone_on, int noise_on)
 {
     UINT8 mixer_val = read_psg(MIXER_REG);
@@ -152,21 +160,25 @@ void enable_channel(int channel, int tone_on, int noise_on)
     write_psg(MIXER_REG, mixer_val);
 }
 
+/*
+ * Function: stop_sound
+ * Purpose: Stops all sound output by disabling all channels and resetting PSG registers.
+ * Parameters:
+ *      None.
+ * Returns:
+ *      None.
+ */
 void stop_sound()
 {
     long oldssp = Super(0);
-    /*turn all channels off in the mixer*/
     write_psg(MIXER_REG, MIXER_NONE);  
 
-    /*disable noise bits*/
     write_psg(NOISE_FREQ_REG, 0x00);
 
-    /*disable envelope bits*/
     write_psg(ENV_FINE, 0x00);
     write_psg(ENV_ROUGH, 0x00);
     write_psg(ENV_SHAPE_CONTROL, 0x00);
 
-    /*disable the volume of all channels*/
     set_volume(CHANNEL_A, 0);
     set_volume(CHANNEL_B, 0);
     set_volume(CHANNEL_C, 0);

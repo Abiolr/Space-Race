@@ -30,8 +30,7 @@ typedef struct {
     int current_note_index;
 } MusicState;
 
-typedef struct
-{
+typedef struct{
     int period;  
     int octave;  
     int duration; 
