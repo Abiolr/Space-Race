@@ -1,5 +1,5 @@
 /**
- * COMP 2659 main.c file
+ * COMP 2659 GAME.C file
  * A simple game engine for rendering a spaceship and asteroids with double buffering.
  *
  * Purpose: This program implements a basic game loop that handles spaceship and asteroid interactions,
