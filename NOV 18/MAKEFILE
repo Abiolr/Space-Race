@@ -1,0 +1,34 @@
+all: clean game tst_mus
+
+game: game.o render.o raster.o model.o events.o
+	cc68x -g game.o render.o raster.o model.o events.o -o game
+
+tst_mus: tst_mus.o music.o psg.o
+	cc68x -g tst_mus.o music.o psg.o -o tst_mus
+
+game.o: game.c
+	cc68x -g -c game.c
+
+tst_mus.o: tst_mus.c
+	cc68x -g -c tst_mus.c
+
+raster.o: raster.c raster.h 
+	cc68x -g -c raster.c
+
+model.o: model.c model.h
+	cc68x -g -c model.c
+
+events.o: events.c events.h
+	cc68x -g -c events.c
+
+render.o: render.c render.h
+	cc68x -g -c render.c
+
+music.o: music.c music.h
+	cc68x -g -c music.c
+
+psg.o: psg.c psg.h
+	cc68x -g -c psg.c
+
+clean:
+	$(RM) *.o *.tos
