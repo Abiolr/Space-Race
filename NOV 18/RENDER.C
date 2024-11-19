@@ -18,15 +18,6 @@
  * Assumptions:
  *   The model pointer is valid and points to an allocated Model structure.
  */
-/*
-void render(const Model *model)
-{
-    render_hearts(base, model);
-    render_spaceship(base, &model->spaceship); MIGHT REMOVE AND CALL EACH ONE***
-    render_asteroids(base, model);
-    render_score(base, model);
-}
-*/
 
 void render(UINT32 *buffer, Model *model) {
     render_hearts((UINT16 *)buffer, model);
