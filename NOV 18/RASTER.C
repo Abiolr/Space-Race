@@ -91,7 +91,7 @@ void plot_bitmap_32(UINT32 *base, int x, int y, const UINT32 *bitmap, unsigned i
  */
 void plot_spaceship(UINT32 *base, int x, int y)
 {
-    plot_bitmap_32(base, x, y, spaceship_bitmap, SPACESHIP_HEIGHT);
+    plot_bitmap_32(base, x, y, flipped_spaceship_bitmap, SPACESHIP_HEIGHT);
 }
 
 /*
@@ -104,7 +104,7 @@ void plot_spaceship(UINT32 *base, int x, int y)
  */
 void plot_heart(UINT16 *base, int x, int y)
 {
-    plot_bitmap_16(base, x, y, heart_bitmap, HEART_HEIGHT);
+    plot_bitmap_16(base, x, y, flipped_heart_bitmap, HEART_HEIGHT);
 }
 
 /*
@@ -119,16 +119,16 @@ void plot_heart(UINT16 *base, int x, int y)
 void plot_number(UINT32 *base, int x, int y, int n)
 {
     switch (n) {
-        case 0: plot_bitmap_32(base, x, y, number_zero, NUMBER_HEIGHT); break;
-        case 1: plot_bitmap_32(base, x, y, number_one, NUMBER_HEIGHT); break;
-        case 2: plot_bitmap_32(base, x, y, number_two, NUMBER_HEIGHT); break;
-        case 3: plot_bitmap_32(base, x, y, number_three, NUMBER_HEIGHT); break;
-        case 4: plot_bitmap_32(base, x, y, number_four, NUMBER_HEIGHT); break;
-        case 5: plot_bitmap_32(base, x, y, number_five, NUMBER_HEIGHT); break;
-        case 6: plot_bitmap_32(base, x, y, number_six, NUMBER_HEIGHT); break;
-        case 7: plot_bitmap_32(base, x, y, number_seven, NUMBER_HEIGHT); break;
-        case 8: plot_bitmap_32(base, x, y, number_eight, NUMBER_HEIGHT); break;
-        case 9: plot_bitmap_32(base, x, y, number_nine, NUMBER_HEIGHT); break;
+        case 0: plot_bitmap_32(base, x, y, flipped_number_zero, NUMBER_HEIGHT); break;
+        case 1: plot_bitmap_32(base, x, y, flipped_number_one, NUMBER_HEIGHT); break;
+        case 2: plot_bitmap_32(base, x, y, flipped_number_two, NUMBER_HEIGHT); break;
+        case 3: plot_bitmap_32(base, x, y, flipped_number_three, NUMBER_HEIGHT); break;
+        case 4: plot_bitmap_32(base, x, y, flipped_number_four, NUMBER_HEIGHT); break;
+        case 5: plot_bitmap_32(base, x, y, flipped_number_five, NUMBER_HEIGHT); break;
+        case 6: plot_bitmap_32(base, x, y, flipped_number_six, NUMBER_HEIGHT); break;
+        case 7: plot_bitmap_32(base, x, y, flipped_number_seven, NUMBER_HEIGHT); break;
+        case 8: plot_bitmap_32(base, x, y, flipped_number_eight, NUMBER_HEIGHT); break;
+        case 9: plot_bitmap_32(base, x, y, flipped_number_nine, NUMBER_HEIGHT); break;
     }
 }
 
@@ -142,7 +142,7 @@ void plot_number(UINT32 *base, int x, int y, int n)
  */
 void plot_asteroid(UINT8 *base, int x, int y)
 {
-    plot_bitmap_8(base, x, y, asteroid_bitmap, ASTEROID_HEIGHT); 
+    plot_bitmap_8(base, x, y, flipped_asteroid_bitmap, ASTEROID_HEIGHT); 
 }
 
 /*
@@ -155,7 +155,7 @@ void plot_asteroid(UINT8 *base, int x, int y)
  */
 void clear_32_bitmap(UINT32 *base, int x, int y)
 {
-    plot_bitmap_32(base, x, y, white_32, 32);
+    plot_bitmap_32(base, x, y, black_32, 32);
 }
 
 /*
@@ -168,7 +168,7 @@ void clear_32_bitmap(UINT32 *base, int x, int y)
  */
 void clear_16_bitmap(UINT16 *base, int x, int y)
 {
-    plot_bitmap_16(base, x, y, white_16, 16);
+    plot_bitmap_16(base, x, y, black_16, 16);
 }
 
 /*
@@ -181,7 +181,7 @@ void clear_16_bitmap(UINT16 *base, int x, int y)
  */
 void clear_8_bitmap(UINT8 *base, int x, int y)
 {
-    plot_bitmap_8(base, x , y, white_8, 8);
+    plot_bitmap_8(base, x , y, black_8, 8);
 }
 
 /*
@@ -196,7 +196,7 @@ void clear_8_bitmap(UINT8 *base, int x, int y)
  */
 void clear_screen(UINT32 *base)
 {
-    UINT32 color = 0x00000000; 
+    UINT32 color = 0xFFFFFFFF; 
 
     int i = 0;
     while (i < SCREEN_HEIGHT) {

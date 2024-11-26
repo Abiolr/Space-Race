@@ -38,6 +38,42 @@ UINT32 spaceship_bitmap[SPACESHIP_HEIGHT] =
 	0x00000000
 };
 
+UINT32 flipped_spaceship_bitmap[SPACESHIP_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xF7FFFFEF,
+    0xE3FFFFC7,
+    0xEBFE7FD7,
+    0xEBFE7FD7,
+    0xEBFE7FD7,
+    0xEBFE7FD7,
+    0xEBFE7FD7,
+    0xEBDC3BD7,
+    0xEBDC3BD7,
+    0xEB9C39D7,
+    0xEB9DB9D7,
+    0xEB9DB9D7,
+    0xEB9DB9D7,
+    0xEB9DB9D7,
+    0xEB9DB9D7,
+    0xEB9009D7,
+    0xEB9009D7,
+    0xEB8001D7,
+    0xEB87E1D7,
+    0xEB0C30D7,
+    0xEB1818D7,
+    0xEB2004D7,
+    0xE8400217,
+    0xE9800197,
+    0xEA081057,
+    0xE4081027,
+    0xE0EBD707,
+    0xE3F3CFC7,
+    0xEFFBDFF7,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT8 asteroid_bitmap[ASTEROID_HEIGHT] =
 {
     0x00,
@@ -48,6 +84,18 @@ UINT8 asteroid_bitmap[ASTEROID_HEIGHT] =
     0xFF,
     0x00,
     0x00
+};
+
+UINT8 flipped_asteroid_bitmap[ASTEROID_HEIGHT] =
+{
+    0xFF,
+    0xFF,
+    0x00,
+    0x00,
+    0x00,
+    0x00,
+    0xFF,
+    0xFF
 };
 
 UINT16 heart_bitmap[HEART_HEIGHT] = 
@@ -68,6 +116,26 @@ UINT16 heart_bitmap[HEART_HEIGHT] =
     0x07E0,
     0x03C0,
     0x0180
+};
+
+UINT16 flipped_heart_bitmap[HEART_HEIGHT] = 
+{
+    0xC3C3,
+    0x8181,
+    0x0180,
+    0x0000,
+    0x1800,
+    0x1000,
+    0x0000,
+    0x0000,
+    0x0000,
+    0x8001,
+    0xC003,
+    0xE007,
+    0xF00F,
+    0xF81F,
+    0xFC3F,
+    0xFE7F
 };
 
 UINT32 number_one[NUMBER_HEIGHT] =
@@ -103,6 +171,41 @@ UINT32 number_one[NUMBER_HEIGHT] =
     0x00FFFF00,
     0x00000000,
     0x00000000
+};
+
+UINT32 flipped_number_one[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFC00FFF,
+    0xFF000FFF,
+    0xFF000FFF,
+    0xFF000FFF,
+    0xFF000FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
 };
 
 UINT32 number_two[NUMBER_HEIGHT] =
@@ -141,6 +244,42 @@ UINT32 number_two[NUMBER_HEIGHT] =
     0x00000000
 };
 
+UINT32 flipped_number_two[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFF000FF,
+    0xFFF000FF,
+    0xFFF000FF,
+    0xFFF000FF,
+    0xFF00FFFF,
+    0xFF00FFFF,
+    0xFF00FFFF,
+    0xFF00FFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF000000F,
+    0xF000000F,
+    0xF000000F,
+    0xF000000F,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT32 number_three[NUMBER_HEIGHT] =
 {
     0x00000000,
@@ -177,7 +316,79 @@ UINT32 number_three[NUMBER_HEIGHT] =
     0x00000000
 };
 
+UINT32 flipped_number_three[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFF000FF,
+    0xFFF000FF,
+    0xFFF000FF,
+    0xFFF000FF,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT32 number_four[NUMBER_HEIGHT] =
+{
+    0x00000000,
+    0x00000000,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x0FF00FF0,
+    0x00FFFFF0,
+    0x00FFFFF0,
+    0x00FFFFF0,
+    0x00FFFFF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000FF0,
+    0x00000000,
+    0x00000000
+};
+
+UINT32 flipped_number_four[NUMBER_HEIGHT] =
 {
     0x00000000,
     0x00000000,
@@ -249,6 +460,42 @@ UINT32 number_five[NUMBER_HEIGHT] =
     0x00000000
 };
 
+UINT32 flipped_number_five[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xF000000F,
+    0xF000000F,
+    0xF000000F,
+    0xF000000F,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00000FF,
+    0xF00000FF,
+    0xF00000FF,
+    0xF00000FF,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT32 number_six[NUMBER_HEIGHT] =
 {
     0x00000000,
@@ -283,6 +530,42 @@ UINT32 number_six[NUMBER_HEIGHT] =
     0x00FFFF00,
     0x00000000,
     0x00000000
+};
+
+UINT32 flipped_number_six[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00FFFFF,
+    0xF00000FF,
+    0xF00000FF,
+    0xF00000FF,
+    0xF00000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
 };
 
 UINT32 number_seven[NUMBER_HEIGHT] =
@@ -321,6 +604,42 @@ UINT32 number_seven[NUMBER_HEIGHT] =
     0x00000000
 };
 
+UINT32 flipped_number_seven[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xF000000F,
+    0xF000000F,
+    0xF000000F,
+    0xF000000F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFF00FF,
+    0xFFFF00FF,
+    0xFFFF00FF,
+    0xFFFF00FF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFF00FFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT32 number_eight[NUMBER_HEIGHT] =
 {
     0x00000000,
@@ -355,6 +674,42 @@ UINT32 number_eight[NUMBER_HEIGHT] =
     0x00FFFF00,
     0x00000000,
     0x00000000
+};
+
+UINT32 flipped_number_eight[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
 };
 
 UINT32 number_nine[NUMBER_HEIGHT] =
@@ -393,6 +748,42 @@ UINT32 number_nine[NUMBER_HEIGHT] =
     0x00000000
 };
 
+UINT32 flipped_number_nine[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF00000F,
+    0xFF00000F,
+    0xFF00000F,
+    0xFF00000F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xFFFFF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT32 number_zero[NUMBER_HEIGHT] =
 {
     0x00000000,
@@ -427,6 +818,42 @@ UINT32 number_zero[NUMBER_HEIGHT] =
     0x00FFFF00,
     0x00000000,
     0x00000000
+};
+
+UINT32 flipped_number_zero[NUMBER_HEIGHT] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xF00FF00F,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFF0000FF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
 };
 
 UINT32 white_32[32] =
@@ -465,6 +892,42 @@ UINT32 white_32[32] =
     0x00000000
 };
 
+UINT32 black_32[32] =
+{
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF,
+    0xFFFFFFFF
+};
+
 UINT16 white_16[16] =
 {
     0x0000,
@@ -485,6 +948,26 @@ UINT16 white_16[16] =
     0x0000
 };
 
+UINT32 black_16[16] =
+{
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF,
+    0xFFFF
+};
+
 UINT8 white_8[8] =
 {
     0x00,
@@ -497,4 +980,15 @@ UINT8 white_8[8] =
     0x00
 };
 
+UINT32 black_8[8] =
+{
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF
+};
 #endif
