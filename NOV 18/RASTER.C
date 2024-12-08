@@ -196,7 +196,7 @@ void clear_8_bitmap(UINT8 *base, int x, int y)
  */
 void clear_screen(UINT32 *base)
 {
-    UINT32 color = 0xFFFFFFFF; 
+    UINT32 color = 0x00000000; 
 
     int i = 0;
     while (i < SCREEN_HEIGHT) {

@@ -94,6 +94,7 @@ void game_loop(){
 void init_buffers() {
     UINT32 aligned_addr;
     frontBuffer = Physbase();
+    printf("%p\n", (void *)frontBuffer);
     aligned_addr = ((UINT32)buffer_storage + ALIGNMENT - 1) & ~(ALIGNMENT - 1);
     backBuffer = (UINT32 *)aligned_addr;  
 }
