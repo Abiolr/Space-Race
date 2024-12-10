@@ -1,0 +1,21 @@
+#ifndef IKBD_H
+#define IKBD_H
+#include <osbind.h>
+
+typedef unsigned char UINT8;
+typedef UINT8 SCANCODE;
+
+extern volatile UINT8* const IKBD_control;
+extern volatile const UINT8* const IKBD_status;
+extern volatile const SCANCODE* const IKBD_RDR;
+
+#define DISABLE 0x16
+#define ENABLE 0x96
+
+#define RDR_FULL ((UINT8)0x01)
+#define ESC_MAKE ((SCANCODE)0x01)
+#define ESC_BREAK ((SCANCODE)0x81)
+
+SCANCODE read_scancode();
+
+#endif
