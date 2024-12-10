@@ -1,0 +1,19 @@
+all: clean tst_mus
+
+tst_mus: tst_mus.o music.o psg.o effects.o
+	cc68x -g tst_mus.o music.o psg.o effects.o -o tst_mus
+
+tst_mus.o: tst_mus.c
+	cc68x -g -c tst_mus.c
+
+music.o: music.c music.h
+	cc68x -g -c music.c
+
+psg.o: psg.c psg.h
+	cc68x -g -c psg.c
+
+effects.o: effects.c effects.h
+	cc68x -g -c effects.c
+
+clean:
+	$(RM) *.o *.tos
