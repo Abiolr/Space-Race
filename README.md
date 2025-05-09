@@ -1,27 +1,41 @@
 
-# 🚀 Atari ST Arcade Game – Spaceship vs. Asteroids
+# 🚀 Space Race – Atari ST Arcade Game
 
-> A low-level, real-time 2D arcade game built in C for the Atari ST platform, demonstrating proficiency in hardware-level graphics rendering, sound synthesis using PSG, and double-buffered animation with custom game logic.
+> A low-level, real-time 2D arcade game built in C for the Atari ST platform, demonstrating hardware-level programming with sprite rendering, audio effects, and double-buffered animation. Navigate a spaceship through asteroid fields and survive as long as possible!
 
 ---
 
 ## 📌 Project Overview
 
-This project is a fully interactive arcade-style game where the player pilots a spaceship through waves of horizontally moving asteroids. Designed for the Atari ST hardware, the game is implemented from the ground up in C, showcasing an understanding of system-level programming, graphics manipulation, and sound control.
+**Space Race** is a top-down arcade game where the player pilots a spaceship vertically through a looping asteroid field. Inspired by classic arcade mechanics, the goal is to reach the top of the screen without colliding with obstacles to score points. The game features:
 
-It simulates a complete game loop: splash screen, player input, real-time rendering, collision detection, background music, and sound effects — all without using any game engines or external libraries.
+- Real-time sprite movement and collisions
+- Three-life system with score tracking
+- PSG-controlled sound effects and background music
+- Clean rendering using double buffering
+- A planned split-screen 2-player competitive mode
 
 ---
 
 ## 🎮 Features
 
-- **Spaceship navigation**: Move the spaceship up/down with real-time control.
-- **Asteroid waves**: 33+ animated asteroids with varying positions and direction.
-- **Collision detection**: Instant feedback and life reduction when crashing into asteroids.
-- **Score & lives tracking**: HUD displays score and remaining lives as bitmap digits/hearts.
-- **Double buffering**: Smooth rendering without flicker using front and back buffers.
-- **Dynamic splash screen**: Rendered welcome screen using bitmap graphics.
-- **Sound system**: PSG-driven background music and crash sound effects.
+- **1-Player Mode**
+  - Navigate vertically using `W` (up) and `S` (down)
+  - 33 asteroids move horizontally from both screen edges
+  - Score a point upon reaching the top, resetting your position
+  - Colliding with an asteroid costs a life and triggers a 2-second cooldown
+  - Game ends when all 3 lives are lost
+
+- **HUD & Feedback**
+  - Score displayed using bitmap digits (max 999)
+  - Lives shown as hearts in the top-right
+  - Game Over screen with final score
+  - Crash sound and ominous background track
+
+- **Bonus (Planned) Features**
+  - 2-Player split-screen competitive mode
+  - Spaceship propulsion animation
+  - Low-life warning banner
 
 ---
 
@@ -29,101 +43,88 @@ It simulates a complete game loop: splash screen, player input, real-time render
 
 | Category        | Technology        | Description                                                       |
 |----------------|-------------------|-------------------------------------------------------------------|
-| Platform        | Atari ST          | Real-mode computing with hardware memory-mapped I/O               |
-| Language        | C                 | System-level logic, buffers, data manipulation                    |
-| Graphics        | Raster Blitting   | Custom bitmap plotting (8-, 16-, 32-bit) to video memory          |
-| Audio           | PSG (YM2149)      | Programmable Sound Generator via direct register manipulation     |
-| Rendering       | Double Buffering  | Flicker-free screen updates by swapping front and back buffers    |
-
-> Why it matters: This project builds core systems from scratch — graphics, sound, game loop — with no libraries. It's a real test of foundational programming ability.
+| Platform        | Atari ST          | Real-mode computing with memory-mapped I/O                        |
+| Language        | C                 | System-level game logic and memory control                        |
+| Graphics        | Raster Blitting   | Manual bitmap rendering with double buffering                     |
+| Audio           | PSG (YM2149)      | Direct register manipulation for music and effects                |
+| Input           | Keyboard polling  | Real-time keypress handling for movement and menu navigation      |
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Requirements
 
-You’ll need:
-- An Atari ST emulator (e.g., [Hatari](https://hatari.tuxfamily.org/)) or actual Atari ST hardware
-- A C compiler compatible with the Atari ST (e.g., Devpac, VBCC, or cross-compilation toolchains)
+- Atari ST hardware or emulator (e.g., [Hatari](https://hatari.tuxfamily.org/))
+- ST-compatible C compiler (Devpac, VBCC, or similar)
 
-### File Structure
+### Setup
 
 ```bash
-├── GAME.C           # Main game loop & system control
-├── MODEL.C          # Game objects: spaceship, asteroids
-├── EVENTS.C         # Input handling & collision logic
-├── RENDER.C         # Sprite rendering to the screen
-├── RASTER.C         # Bitmap plotting primitives
-├── MUSIC.C          # Background music engine
-├── EFFECTS.C        # Sound effects (e.g., crash)
-├── PSG.C            # PSG sound driver (YM2149 chip)
-├── BITMAP.H         # Sprite data (spaceship, asteroid, heart, digits)
-├── RAST_ASM.H       # Video memory control (inline ASM interface)
+# Compile all source files (.C)
+# Link into a .PRG or .TOS binary executable
+
+Controls:
+  - W: Move Up
+  - S: Move Down
+  - ENTER: Start Game (on splash)
+  - ESC: Exit Game
 ```
-
-### Compilation & Usage
-
-1. Compile all `.C` files with your ST-compatible C compiler.
-2. Link into a `.PRG` or `.TOS` file.
-3. Load the executable on your Atari ST or through an emulator like Hatari.
-4. **Controls:**
-   - `W`: Move spaceship up
-   - `S`: Move spaceship down
-   - `ESC`: Exit game
 
 ---
 
-## 📷 Demo Screenshots
+## 🕹️ Game Mechanics
 
-> _(Replace with actual emulator screenshots if available)_
+- **Spaceship**: 32x32 pixels, moves 10px per tick along the Y-axis
+- **Asteroids**: 8x8 pixels, move horizontally at 2px/tick, loop after exiting screen
+- **Scoring**: 1 point per top-edge reach, resets position after each point
+- **Lives**: Lose 1 life per collision, max 3, ends game on 0
+- **Cooldown**: 2-second pause after crash (spaceship disabled)
+
+---
+
+## 📷 Demo Placeholder
 
 ```
-+-------------------+
-|  SPACESHIP vs.    |
-|     ASTEROIDS     |
-|  SCORE:   ♥ ♥ ♥    |
-+-------------------+
+| ♥ ♥ ♥  SCORE: 002 |
+|                   |
+|    [ SPACESHIP ]  |
+|                   |
+| [ASTEROIDS -> <-] |
 ```
 
 ---
 
 ## ⚠️ Known Limitations
 
-- Only vertical movement is allowed for the player.
-- No level progression — difficulty remains static.
-- PSG sound timing may vary across different emulator configurations.
-
----
-
-## 🔭 Future Enhancements
-
-- Add horizontally moving player or bullet shooting mechanics.
-- Integrate a high score leaderboard using NVRAM or save files.
-- Optimize for variable frame rates across Atari models.
+- No horizontal movement or projectile support
+- No save system (score resets on power-off)
+- 2-player mode and animations are pending implementation
 
 ---
 
 ## 👥 Authors
 
-- **Patrick Dang**
 - **Abiola Raji**
+- **Patrick Dang**
 
-> Developed as part of COMP 2659: Computer Architecture & Systems Programming – Fall 2024
+Project submitted for **COMP 2659 – Computer Architecture & Systems Programming**  
+Instructor: Paul Pospisil — Fall 2024
+
+---
+
+## 🧠 Why This Project Matters
+
+Space Race showcases the core competencies of a systems-oriented developer:
+
+- Understanding of embedded audio and video memory
+- Strong debugging across direct memory manipulation
+- Design of a full game loop and real-time event system from scratch
+
+Ideal for showcasing foundational skills in embedded systems, game dev, and low-level graphics/audio programming.
 
 ---
 
 ## 📝 License
 
-This project is distributed under the MIT License. See `LICENSE` file for details if included.
-
----
-
-## 🧠 Why This Project Stands Out
-
-This game highlights:
-- **Low-level programming skills** (memory, buffers, hardware registers)
-- **Clean architecture** (modular C files for rendering, input, sound)
-- **System design thinking** under constraints — no dynamic memory, no libraries
-
-If you're a recruiter reviewing student portfolios, this demonstrates readiness for roles that require strong fundamentals in graphics, systems programming, or embedded software engineering.
+MIT License. See LICENSE file if included.
