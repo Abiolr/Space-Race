@@ -45,26 +45,14 @@
 |----------------|-------------------|-------------------------------------------------------------------|
 | Platform        | Atari ST          | Real-mode computing with memory-mapped I/O                        |
 | Language        | C                 | System-level game logic and memory control                        |
-| Graphics        | Raster Blitting   | Manual bitmap rendering with double buffering                     |
+| Graphics        | Raster            | Manual bitmap rendering with double buffering                     |
 | Audio           | PSG (YM2149)      | Direct register manipulation for music and effects                |
-| Input           | Keyboard polling  | Real-time keypress handling for movement and menu navigation      |
 
 ---
 
-## 🚀 Getting Started
-
-### Requirements
-
-- Atari ST hardware or emulator (e.g., [Hatari](https://hatari.tuxfamily.org/))
-- ST-compatible C compiler (Devpac, VBCC, or similar)
-
-### Setup
+## Controls
 
 ```bash
-# Compile all source files (.C)
-# Link into a .PRG or .TOS binary executable
-
-Controls:
   - W: Move Up
   - S: Move Down
   - ENTER: Start Game (on splash)
@@ -83,15 +71,9 @@ Controls:
 
 ---
 
-## 📷 Demo Placeholder
+## 📷 Demo
 
-```
-| ♥ ♥ ♥  SCORE: 002 |
-|                   |
-|    [ SPACESHIP ]  |
-|                   |
-| [ASTEROIDS -> <-] |
-```
+<img width="1103" alt="Screenshot 2025-05-08 at 7 55 44 PM" src="https://github.com/user-attachments/assets/88b98bf3-d7c6-4798-aa53-a4589805adc0" />
 
 ---
 
@@ -99,7 +81,7 @@ Controls:
 
 - No horizontal movement or projectile support
 - No save system (score resets on power-off)
-- 2-player mode and animations are pending implementation
+- 2-player mode and animations not implemented
 
 ---
 
@@ -108,8 +90,7 @@ Controls:
 - **Abiola Raji**
 - **Patrick Dang**
 
-Project submitted for **COMP 2659 – Computer Architecture & Systems Programming**  
-Instructor: Paul Pospisil — Fall 2024
+Project submitted for **COMP 2659 – Computing Machinery II (Fall 2024)**  
 
 ---
 
@@ -124,7 +105,3 @@ Space Race showcases the core competencies of a systems-oriented developer:
 Ideal for showcasing foundational skills in embedded systems, game dev, and low-level graphics/audio programming.
 
 ---
-
-## 📝 License
-
-MIT License. See LICENSE file if included.
